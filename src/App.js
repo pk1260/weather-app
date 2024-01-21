@@ -23,7 +23,7 @@ function App() {
                     <input
                         value={location}
                         onChange={(event) => setLocation(event.target.value)}
-                        onKeyPress={searchLocation}
+                        onKeyDown={searchLocation}
                         placeholder="Enter Location"
                         type="text"
                     />
