@@ -1,20 +1,39 @@
 import React, {useState} from 'react';
-
+import axios from 'axios';
 function App() {
+    const [data, setData] = React.useState();
+    const [location, setLocation] = useState('');
+    const WeatherAPI = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=` + process.env.REACT_APP_WEATHER_KEY + `&units=metric`
 
-    const WeatherAPI = 'https://api.openweathermap.org/data/2.5/weather?q=amsterdam&appid=' + process.env.REACT_APP_WEATHER_KEY;
+    const searchLocation = (event) => {
+        if (event.key === "Enter") {
+            axios.get(WeatherAPI).then(res => {
+                const data = res.data;
+                setData(data);
+                console.log(data)
+            })
+        }
+    }
 
-    console.log(WeatherAPI)
     return (
         <div className="App">
             <section className="app_container">
-                <h2 className="weather_city">Amsterdam</h2>
+                <section className="weather_input">
+                    <input
+                        value={location}
+                        onChange={event => setLocation(event.target.value)}
+                        onKeyPress={searchLocation}
+                        placeholder="Enter Location"
+                        type="text"
+                    />
+                </section>
+                <h2 className="weather_city">{data.name}</h2>
                 <img src="#" alt="weather_icon"/>
-                <p className="weather_description">25°C</p>
+                <p className="weather_description">{data.main.temp.toFixed()}°C</p>
                 <section className="weather_info">
-                    <p className="weather_temperature">19°C</p>
-                    <p className="weather_humidity">20%</p>
-                    <p className="weather_wind">10KM/H</p>
+                    <p className="weather_temperature">{data.main.feels_like.toFixed()}°C</p>
+                    <p className="weather_humidity">{data.main.humidity}%</p>
+                    <p className="weather_wind">{data.wind.speed.toFixed()}KM/H</p>
                 </section>
             </section>
         </div>
