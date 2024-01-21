@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+
 function App() {
     const [data, setData] = React.useState();
     const [location, setLocation] = useState('');
@@ -21,20 +22,24 @@ function App() {
                 <section className="weather_input">
                     <input
                         value={location}
-                        onChange={event => setLocation(event.target.value)}
+                        onChange={(event) => setLocation(event.target.value)}
                         onKeyPress={searchLocation}
                         placeholder="Enter Location"
                         type="text"
                     />
                 </section>
-                <h2 className="weather_city">{data.name}</h2>
-                <img src="#" alt="weather_icon"/>
-                <p className="weather_description">{data.main.temp.toFixed()}°C</p>
-                <section className="weather_info">
-                    <p className="weather_temperature">{data.main.feels_like.toFixed()}°C</p>
-                    <p className="weather_humidity">{data.main.humidity}%</p>
-                    <p className="weather_wind">{data.wind.speed.toFixed()}KM/H</p>
-                </section>
+                {data && (
+                    <>
+                        <h2 className="weather_city">{data.name}</h2>
+                        <p className="weather_description">{data.main.temp.toFixed()}°C</p>
+                        <img src={`assets/${data.weather[0].icon}.png`} alt="weather_icon"/>
+                        <section className="weather_info">
+                            <p className="weather_temperature">{data.main.feels_like.toFixed()}°C</p>
+                            <p className="weather_humidity">{data.main.humidity}%</p>
+                            <p className="weather_wind">{data.wind.speed.toFixed()}KM/H</p>
+                        </section>
+                    </>
+                )}
             </section>
         </div>
     );

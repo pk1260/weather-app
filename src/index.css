@@ -34,8 +34,24 @@ body {
   height: auto;
 }
 
-.app_container h2 {
+.weather_city {
   color: white;
   font-size: 2rem;
-  margin-bottom: 1rem;
+}
+
+.weather_description {
+  color: white;
+  font-size: 3rem;
+}
+
+.weather_info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+img {
+  width: 5rem;
+  height: auto;
+  border-radius: 5px;
 }
