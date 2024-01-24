@@ -24,6 +24,7 @@ body {
   height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
 }
 
@@ -93,7 +94,7 @@ body {
 }
 
 .weather_input {
-  position: sticky;
+  position: fixed;
   top: 0;
   padding: 1rem;
   z-index: 1;
