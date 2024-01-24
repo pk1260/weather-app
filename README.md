@@ -27,7 +27,8 @@ Welcome to the Weather App! This web application allows you to check the weather
    ```
 
 # How to use
-Enter the name of the city you want to check the weather for in the search bar.
-Press Enter to get the weather resultes for your city.
-View the weather information displayed on the page.
-If the entered city is not found, an error message will be displayed.
+1. Enter the desired city name in the search bar.
+2. Press Enter to retrieve the weather results for the specified city.
+3. Review the displayed weather information on the page.
+4. If the entered city is not found, an error message will be displayed.
+
