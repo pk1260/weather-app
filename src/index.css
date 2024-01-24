@@ -1,5 +1,5 @@
 /*IMPORT FONT STYLE*/
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 /*Global style*/
 * {
@@ -16,42 +16,101 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #F1F0FF;
 }
 
 .App {
   width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
-.app_container {
-  background: dimgrey;
-  padding: .8rem .6rem;
-  border-radius: 5px;
-  width: 30%;
-  height: auto;
+/*New styling*/
+.content_container {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 3rem;
+  margin: 20px; /* Adjusted margin for spacing */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /*Animation*/
+  animation: scale-up-hor-center 0.2s cubic-bezier(0.895, 0.030, 0.685, 0.220) forwards;
+}
+
+@keyframes scale-up-hor-center {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.weather_card_header {
+    color: #000000;
+    font-size: 1.5rem;
+    font-weight: 700; /* Adjusted font weight for emphasis */
 }
 
 .weather_city {
-  color: white;
-  font-size: 2rem;
+  color: #000000;
+  font-size: 1.3rem;
+  font-weight: 500; /* Adjusted font weight for emphasis */
+
 }
 
-.weather_description {
-  color: white;
-  font-size: 3rem;
+.weather_figure {
+  display: flex;
+  flex-direction: row;
+}
+
+.weather_figure img {
+    width: 12rem;
+    height: auto;
+    border-radius: 10px;
 }
 
 .weather_info {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
 }
 
-img {
-  width: 5rem;
-  height: auto;
+.weather_temp, .weather_desc {
+    color: #000000;
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.weather_desc {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.weather_input {
+  position: sticky;
+  top: 0;
+  padding: 1rem;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  width: 20rem;
+  padding: 1rem;
+  border: none;
   border-radius: 5px;
+  font-size: 1.2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+input::placeholder {
+  color: #000000; /* Changed the placeholder color to be visible on white background */
 }
